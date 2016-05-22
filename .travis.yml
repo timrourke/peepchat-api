@@ -1,0 +1,17 @@
+language: elixir
+elixir:
+- 1.2
+otp_release:
+- 18.2
+sudo: false
+addons:
+  postgresql: '9.4'
+before_script:
+- psql -c 'create database peepchat_test;' -U postgres
+deploy:
+  provider: heroku
+  api_key:
+    secure: Eo8S3wDAjKqY/LnCmuFBqR1eqkjI/w89yi8cIphKUp0iIJK8Nqwmms7BdTQisCemr4B2dqo8rCDUAsmHC4flYTLjAxRE7B+pwagv3J1iZtiRkkV2cQMgpKnWZxwwisl8+LfeIkwQQo1vqctjLgc4y0kylVUP6mLbH36SD0WYtWxUXOMaStXsyQHgqbx9LLdYgsFcI/g6dkcNXkEBAD1v2FlHAtmGp86ZoiLcmwKxbKKJ6N5izcZw71Sud6nccHmwm7dzXEBHMPrSt5r6ItUnNBRHE9V7THad/QOkV2XZ4GaPrK13Ut4OIjcZF9I7pTcEdwaH9Ta3+QMklRwvk9bAyCnlezmJW5fFHNRLk0FCVmdZuF3sOw70Siy6qjEeynYWjbTy300jD3KRvq0DV04vUuda5/jVU6eq4OOVhuruUwFNTmCWop48mikUXGcnB0k0QOf5bYsLX3Au9AQK8iSZ0sbQsG2NcN4eMlefAuTZ2dkDr/SOcUlU8FRRP+Y9hUpCAYyUbCV6IMPYyt/+Jh0UXFtbmQwk0sLCYkz6dMFKg93zAIFbeTogMmwS5UHvnZRtVSs6Qm9Va8xhW80vhlCDgata2UKDrrPAyaEyP3bfSzkNK9hF0BaV8ONwaqNxjVYo43wqOzE4zs6JHmaITskHBl6ZHlH4rE4tmhryM6IWnpM=
+  app: secure-brushlands-86807
+  on:
+    repo: timrourke/peepchat-api
