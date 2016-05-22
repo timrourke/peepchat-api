@@ -9,7 +9,8 @@ config :peepchat, Peepchat.Endpoint,
 # Configure your database
 config :peepchat, Peepchat.Repo,
   adapter: Ecto.Adapters.Postgres,
-  username: System.get_env("DATABASE_USER"),
-  password: System.get_env("DATABASE_PASSWORD"),
-  database: System.get_env("DATABASE_DBNAME"),
+  # username: System.get_env("DATABASE_USER"),
+  # password: System.get_env("DATABASE_PASSWORD"),
+  # database: System.get_env("DATABASE_DBNAME"),
+  url: System.get_env("DATABASE_URL"),
   pool_size: 20
