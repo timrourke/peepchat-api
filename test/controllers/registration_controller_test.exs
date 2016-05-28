@@ -4,9 +4,9 @@ defmodule Peepchat.RegistrationControllerTest do
 	alias Peepchat.User
 
 	@valid_attrs %{
-		email: "asdh3fhsdh.sdd@example.cn",
-		password: "gm83nsfhsfh",
-		password_confirmation: "gm83nsfhsfh"
+		"email": "asdh3fhsdh.sdd@example.cn",
+		"password": "gm83nsfhsfh",
+		"password-confirmation": "gm83nsfhsfh"
 	}
 
 	@invalid_attrs %{}
@@ -18,7 +18,7 @@ defmodule Peepchat.RegistrationControllerTest do
 	test "creates and renders resource when data is valid", %{conn: conn} do
 		conn = post conn, registration_path(conn, :create), %{
 			data: %{
-				type: "user",
+				type: "users",
 				attributes: @valid_attrs
 			}
 		}
