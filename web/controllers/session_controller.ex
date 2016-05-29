@@ -3,7 +3,7 @@ defmodule Peepchat.SessionController do
 
   import Ecto.Query, only: [where: 2]
   import Comeonin.Bcrypt
-  import Logger
+  require Logger
 
   alias Peepchat.User
 
@@ -26,7 +26,7 @@ defmodule Peepchat.SessionController do
 
         # Failure
         true ->
-          Logger.warning "User " <> username <> " just failed to log in"
+          Logger.warn "User " <> username <> " just failed to log in"
           conn
           |> put_status(401)
           |> render(Peepchat.ErrorView, "401.json")

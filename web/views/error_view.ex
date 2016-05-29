@@ -2,18 +2,28 @@ defmodule Peepchat.ErrorView do
   use Peepchat.Web, :view
   use JaSerializer.PhoenixView
 
+  def render("400.json", _assigns) do
+    %{title: "Bad Request", code: 400}
+    |>JaSerializer.ErrorSerializer.format
+  end
+
   def render("401.json", _assigns) do
-    %{title: "Unarthorized", code: 401}
+    %{title: "Unauthorized", code: 401}
     |>JaSerializer.ErrorSerializer.format
   end
 
   def render("403.json", _assigns) do
-    %{title: "Forbidden", code: 404}
+    %{title: "Forbidden", code: 403}
     |>JaSerializer.ErrorSerializer.format
   end
 
   def render("404.json", _assigns) do
     %{title: "Not Found", code: 404}
+    |>JaSerializer.ErrorSerializer.format
+  end
+
+  def render("422.json", _assigns) do
+    %{title: "Unprocessable Entity", code: 422}
     |>JaSerializer.ErrorSerializer.format
   end
 
